@@ -12,11 +12,27 @@ app.disableHardwareAcceleration();
 // Menubar Setup
 // ============================================================================
 
-const iconPath = path.join(__dirname, '../../assets/iconTemplate.png');
+// Create a simple magnifying glass icon for the menubar
+// 16x16 PNG template image (black on transparent)
+function createIcon() {
+  // Simple 16x16 magnifying glass icon as base64 PNG
+  const iconData = Buffer.from(
+    'iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAA' +
+    'dgAAAHYBTnsmCAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADYSURBVDiNpZM9' +
+    'DoJAEIW/WVDwCHZeAGNiY+0RLKw9grGx9gaewIbGxhtYGo9gZ2mhxgMQyljsy8qPRHyTTTa7b97MvgU+' +
+    'pNScJoCpAGLgqrU+/YwWgYXW+grMgBPQAqKv6o/qs44BY+ACnLXWq1+JQQgxFkKshRAD4AjctNZrIcQe' +
+    'mGqtU8C47wC0bxIhxBy4aq3vQogtMABOWusNcOgC/OZgDIyBgxCiD9y01g8hxAXoaa0LwKfLQM7JwPMT' +
+    'hBB94KG1fgghLkBPa10EPjOQi6SUC8DTL+AvOAJZ4PUGRN0mM7eiRNsAAAAASUVORK5CYII=',
+    'base64'
+  );
+  const icon = nativeImage.createFromBuffer(iconData);
+  icon.setTemplateImage(true);
+  return icon;
+}
 
 const mb = menubar({
   index: `file://${path.join(__dirname, '../renderer/index.html')}`,
-  icon: iconPath,
+  icon: createIcon(),
   preloadWindow: true,
   browserWindow: {
     width: 420,
