@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  input, textarea {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #161b22;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #30363d;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #484f58;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md font-medium transition-colors duration-150;
+  }
+  
+  .btn-primary {
+    @apply bg-gh-green text-white hover:bg-gh-green-hover;
+  }
+  
+  .btn-danger {
+    @apply bg-gh-red text-white hover:bg-gh-red-hover;
+  }
+  
+  .btn-secondary {
+    @apply bg-gh-border text-gh-text hover:bg-opacity-80;
+  }
+  
+  .card {
+    @apply bg-gh-dark border border-gh-border rounded-lg p-4;
+  }
+  
+  .input {
+    @apply bg-gh-darker border border-gh-border rounded-md px-3 py-2 text-gh-text placeholder-gh-text-muted focus:outline-none focus:border-gh-blue w-full;
+  }
+  
+  .collapsible-header {
+    @apply flex items-center justify-between cursor-pointer p-3 rounded-lg hover:bg-gh-border/30 transition-colors;
+  }
+  
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium;
+  }
+  
+  .badge-green {
+    @apply bg-gh-green/20 text-gh-green;
+  }
+  
+  .badge-red {
+    @apply bg-gh-red/20 text-gh-red;
+  }
+  
+  .quiz-option {
+    @apply p-3 rounded-lg border border-gh-border hover:border-gh-blue cursor-pointer transition-colors text-left w-full;
+  }
+  
+  .quiz-option.selected {
+    @apply border-gh-blue bg-gh-blue/10;
+  }
+  
+  .quiz-option.correct {
+    @apply border-gh-green bg-gh-green/10;
+  }
+  
+  .quiz-option.incorrect {
+    @apply border-gh-red bg-gh-red/10;
+  }
+}
