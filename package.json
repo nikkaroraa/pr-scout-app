@@ -8,7 +8,7 @@
     "dev": "NODE_ENV=development electron .",
     "build:css": "tailwindcss -i ./src/renderer/styles/input.css -o ./src/renderer/styles/output.css --minify",
     "watch:css": "tailwindcss -i ./src/renderer/styles/input.css -o ./src/renderer/styles/output.css --watch",
-    "prebuild": "npm run build:css",
+    "prebuild": "pnpm run build:css",
     "build": "electron-builder --mac",
     "build:dmg": "electron-builder --mac dmg",
     "build:app": "electron-builder --mac dir",
@@ -67,5 +67,6 @@
   },
   "dependencies": {
     "menubar": "^9.4.0"
-  }
+  },
+  "packageManager": "pnpm@9.0.0"
 }
